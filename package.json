@@ -1,14 +1,14 @@
 {
   "name": "vue-admin",
-  "version": "0.1.12",
-  "description": "Vue Admin Panel Framework",
-  "repository": "vue-bulma/vue-admin",
-  "homepage": "https://admin.vuebulma.com",
+  "version": "0.1.01",
+  "description": "c0in Admin Panel Framework",
+  "repository": "c0in/vue-admin",
+  "homepage": "https://admin.c0in.net",
   "license": "MIT",
   "author": {
-    "name": "Fangdun Cai",
-    "email": "cfddream@gmail.com",
-    "url": "fundon.me"
+    "name": "kswiss",
+    "email": "kswiss@c0in.net",
+    "url": "https://c0in.net"
   },
   "keywords": [
     "admin",
@@ -30,7 +30,41 @@
     "gh": "npm run build && gh-pages -d dist",
     "lint": "eslint --ext .js .vue client/*",
     "lint:fix": "eslint --fix --ext .js .vue electron.js client/* build/* config/*",
-    "test": "echo lol"
+    "postinstall": "electron-builder install-app-deps",
+    "start": "yarn install && yarn compile && electron ./app",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "build": {
+    "productName": "CasinoAdmin",
+    "appId": "net.c0in.admin",
+    "mac": {
+      "category": "public.app-category.tools"
+    },
+    "dmg": {
+      "contents": [
+        {
+          "x": 110,
+          "y": 150
+        },
+        {
+          "x": 240,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    },
+    "win": {
+      "target": "NSIS",
+      "icon": "build/icons/icon.ico"
+    }
   },
   "dependencies": {
     "@websanova/vue-auth": "^2.8.2-beta",
@@ -71,6 +105,11 @@
     "vue-router": "^2.3.0",
     "vuex": "^2.2.1",
     "vuex-router-sync": "^4.1.2",
+    "configstore": "^3.1.2",
+    "electron-debug": "^1.5.0",
+    "electron-is-dev": "^0.3.0",
+    "electron-log": "^2.2.14",
+    "electron-updater": "^2.21.8",
     "wysiwyg.css": "0.0.2"
   },
   "devDependencies": {
@@ -104,6 +143,8 @@
     "ora": "^1.1.0",
     "postcss-loader": "^1.3.3",
     "progress-bar-webpack-plugin": "^1.9.1",
+    "electron": "1.8.4",
+    "electron-builder": "^20.10.0",
     "sass-loader": "^6.0.3",
     "serve-favicon": "^2.4.1",
     "style-loader": "^0.13.1",
