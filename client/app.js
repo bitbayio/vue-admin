@@ -1,3 +1,11 @@
+/**
+ * @Author: kswiss
+ * @Date:   2018-07-01T10:51:07+02:00
+ * @Filename: app.js
+ * @Last modified by:   kswiss
+ * @Last modified time: 2018-07-02T07:08:33+02:00
+ */
+
 import Vue from 'vue'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
@@ -24,7 +32,7 @@ Vue.use(VueAuth, {
   },
   http: require('@websanova/vue-auth/drivers/http/axios.1.x.js'),
   router: require('@websanova/vue-auth/drivers/router/vue-router.2.x.js'),
-  loginData: { url: 'http://localhost:6789/login', fetchUser: false },
+  loginData: { url: 'https://admin-dev.c0in.net/login', fetchUser: false },
   refreshData: { enabled: false }
 })
 
